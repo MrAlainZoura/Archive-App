@@ -11,16 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('parcelles', function (Blueprint $table) {
+        Schema::create('titre_proprietes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('titre_propriete_id')
+            $table->foreignId('assujettie_id')
                 ->references('id')
-                ->on('titre_proprietes')
+                ->on('assujetties')
                 ->constrained()
                 ->noActionOnDelete()
                 ->cascadeOnUpdate();
-            $table->string('adresse');
-            $table->double('superficie');
+            $table->string('numero');
+            $table->longText('description');
+            $table->string('libele');
+            $table->date('date_titre');
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('parcelles');
+        Schema::dropIfExists('titre_proprietes');
     }
 };

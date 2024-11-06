@@ -11,16 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('parcelles', function (Blueprint $table) {
+        Schema::create('conservateurs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('titre_propriete_id')
-                ->references('id')
-                ->on('titre_proprietes')
-                ->constrained()
-                ->noActionOnDelete()
-                ->cascadeOnUpdate();
+            $table->string('matricule');
+            $table->string('nom');
+            $table->string('postnom');
+            $table->string('prenom');
+            $table->date('date_naissance');
+            $table->string('genre');
             $table->string('adresse');
-            $table->double('superficie');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('parcelles');
+        Schema::dropIfExists('conservateurs');
     }
 };

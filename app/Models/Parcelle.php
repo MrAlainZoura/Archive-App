@@ -8,9 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Parcelle extends Model
 {
     use HasFactory;
-    protected $fillable =['assujettie_id','adresse','superficie'];
+    protected $fillable =[
+        'titre_propriete_id',
+        'adresse',
+        'superficie'
+];
 
-    public function assujettie(){
-        return $this->belongsTo(Assujettie::class);
+    public function titre_propriete(){
+        return $this->belongsTo(Titre_propriete::class);
     }
 }

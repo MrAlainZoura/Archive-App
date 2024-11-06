@@ -5,23 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Assujettie extends Model
+class Conservateur extends Model
 {
     use HasFactory;
-    protected $fillable = [
+
+    protected $fillale = [
+        'matricule',
         'nom',
         'postnom',
         'prenom',
-        'date_de_naissance',
-        'adresse',
+        'date_naissance',
         'genre',
-        'etat_civil',
-        'nombre_enfant',     
+        'adresse'
     ];
 
-    public function parcelle(){
-        return $this->hasMany(Parcelle::class);
-    }
     public function dossier(){
         return $this->hasMany(Dossier::class);
     }
