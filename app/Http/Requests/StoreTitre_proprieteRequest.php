@@ -22,7 +22,11 @@ class StoreTitre_proprieteRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'assujettie_id'=>'required|int',
+            'numero'=>'required|string',
+            'description'=>'required|string',
+            'libele'=>'required|string',
+            'date_titre'=>'required|date'
         ];
     }
 }
